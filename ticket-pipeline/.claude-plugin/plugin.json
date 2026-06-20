@@ -1,0 +1,7 @@
+{
+  "name": "ticket-pipeline",
+  "version": "1.0.0",
+  "description": "Manager↔developer ticket pipeline: /draft-ticket (interview the manager, produce a ready-to-run issue), /start-ticket (walkthrough + Q&A training, then plan, then build), /handoff (report from the real diff), /manager-review (check the PR against acceptance criteria), /setup-tickets (scaffold any repo).",
+  "author": { "name": "Humble Coders" },
+  "keywords": ["tickets", "workflow", "code-review", "process", "github"]
+}
