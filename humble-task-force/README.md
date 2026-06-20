@@ -6,19 +6,24 @@ A portable **manager ↔ developer ticket pipeline** for Claude Code. Install on
 
 | Command | Who | What it does |
 |---|---|---|
-| `/draft-ticket <what to build>` | Manager | Drafts a ticket, then **interviews you** for the decisions a developer would otherwise ask about (access, hosting, scope) with recommended answers, bakes them in, and creates the GitHub issue. |
-| `/start-ticket <issue#>` | Developer | Reads the ticket + `CLAUDE.md` + spec, gives a plain-language walkthrough, **offers a Q&A "training mode"**, then plans and confirms before coding. |
-| `/handoff <issue#>` | Developer | Writes `handoffs/ticket-<#>.md` from the **real git diff** (files changed, how to test, acceptance criteria, deviations). |
-| `/manager-review <PR#>` | Manager | Checks the PR diff + handoff against the ticket's acceptance criteria; flags risks at `file:line`. |
-| `/setup-tickets` | Anyone | Scaffolds the current repo: issue/PR templates, `docs/PROCESS.md`, `handoffs/`, `docs/tickets/`, and a `CLAUDE.md` starter. |
+| `/setup-tickets` | Anyone | Scaffolds the current repo: issue/PR templates, `docs/PROCESS.md`, `handoffs/`, `docs/tickets/`. |
+| `/draft-prd <idea>` | **Manager** | Interviews you to produce the product spec at `docs/PRD.md` (vision, scope, architecture, constraints). |
+| `/draft-architecture` | **Manager** | Reads the PRD + codebase and writes the project's `CLAUDE.md` (architecture + rules every dev's Claude reads). |
+| `/draft-ticket <what to build>` | **Manager** | Drafts a ticket, **interviews you** for the decisions a developer would otherwise ask about, bakes them in, and creates the GitHub issue. |
+| `/start-ticket <issue#>` | Developer | Reads the ticket + `CLAUDE.md` + PRD, gives a plain-language walkthrough, **offers a Q&A "training mode"**, then plans and confirms before coding. |
+| `/handoff <issue#>` | Developer | Writes `handoffs/ticket-<#>.md` from the **real git diff**. |
+| `/manager-review <PR#>` | **Manager** | Checks the PR diff + handoff against the ticket's acceptance criteria; flags risks at `file:line`. |
 
-## Setting up a new project
-1. `/setup-tickets` — drops in the templates, folders, and `docs/PROCESS.md`.
-2. Fill in the project-specific `CLAUDE.md` (architecture).
-3. `/draft-ticket <first thing to build>`.
+## The full project lifecycle
+```
+/setup-tickets → /draft-prd → /draft-architecture → /draft-ticket → /start-ticket → build → /handoff → PR → /manager-review → merge
+   (scaffold)      (PRD)         (CLAUDE.md)          (issue)        (dev: train+plan)  (dev)             (manager)
+```
+The **PRD** and **CLAUDE.md** are the foundation — every ticket references the PRD, and every `/start-ticket` and `/draft-ticket` reads `CLAUDE.md`. Build them first.
 
 ## Principles
+- **Foundation first** — the PRD and `CLAUDE.md` ground everything; create them before tickets.
 - **Definition of Ready** — a ticket must be runnable by a junior dev cold.
-- **Secrets never go in tickets** — reference the secure source, never the value.
+- **Secrets never go in tickets or `CLAUDE.md`** — reference the secure source, never the value.
 - **Training before building** — a developer can ask anything before code is written.
 - **Handoff from the real diff** — reports are generated from `git diff`, not memory.

@@ -1,5 +1,5 @@
 ---
-description: Scaffold the current repo for the ticket pipeline — issue/PR templates, handoffs + tickets folders, a PROCESS doc, and a CLAUDE.md starter
+description: Scaffold the current repo for the ticket pipeline — issue/PR templates, handoffs + tickets folders, and a PROCESS doc
 ---
 Set up the **current repository** to use the ticket pipeline. The plugin's template files live at `${CLAUDE_PLUGIN_ROOT}/templates/`.
 
@@ -11,5 +11,9 @@ Steps (use the Bash tool):
    - `${CLAUDE_PLUGIN_ROOT}/templates/PROCESS.md` → `docs/PROCESS.md`
    - `${CLAUDE_PLUGIN_ROOT}/templates/handoffs-README.md` → `handoffs/README.md`
    - create an empty `docs/tickets/.gitkeep`
-3. If `CLAUDE.md` does NOT exist in the repo root, copy `${CLAUDE_PLUGIN_ROOT}/templates/CLAUDE.starter.md` → `CLAUDE.md`, then tell the manager to fill in the project-specific architecture sections. If `CLAUDE.md` exists, leave it and remind them to add a "How we work" section pointing to `docs/PROCESS.md` if it's missing.
-4. Verify each file landed, then print a short summary and the next step: **"Run `/draft-ticket <what to build>` to create your first ticket."**
+3. Verify each file landed, then print a summary and the **foundation next steps** (skip any whose file already exists):
+   - "Run **`/draft-prd <your idea>`** to write the product spec (`docs/PRD.md`)."
+   - "Then **`/draft-architecture`** to generate this project's `CLAUDE.md` from the PRD + code."
+   - "Then **`/draft-ticket <first thing>`** to create your first ticket."
+
+(For a manual `CLAUDE.md` skeleton instead of `/draft-architecture`, a starter is at `${CLAUDE_PLUGIN_ROOT}/templates/CLAUDE.starter.md`.)
