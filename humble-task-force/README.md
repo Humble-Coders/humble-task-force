@@ -1,4 +1,4 @@
-# ticket-pipeline
+# Humble Task Force
 
 A portable **manager ↔ developer ticket pipeline** for Claude Code. Install once, use in every repo.
 

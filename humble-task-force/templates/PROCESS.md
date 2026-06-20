@@ -1,6 +1,6 @@
 # Team Process — How We Build with Claude Code
 
-This is the playbook for running this project. It's written so a **new manager or developer can read it once and run the whole pipeline.** The process lives **here and in the `ticket-pipeline` Claude Code plugin — not in any one person's head.** Anyone who installs the plugin and clones the repo inherits it.
+This is the playbook for running this project. It's written so a **new manager or developer can read it once and run the whole pipeline.** The process lives **here and in the Humble Task Force Claude Code plugin — not in any one person's head.** Anyone who installs the plugin and clones the repo inherits it.
 
 > **New manager? Read this, then `CLAUDE.md` (architecture).** That's enough to start.
 
@@ -31,7 +31,7 @@ Run **`/handoff <issue#>`** — writes `handoffs/ticket-<#>.md` from the **real 
 Run **`/manager-review <PR#>`** — Claude checks the diff + handoff against the ticket's acceptance criteria and flags risks at `file:line`. Then run the app yourself. Approve or request changes.
 
 ## Onboarding a new manager (the whole point)
-1. Install the plugin: `/plugin marketplace add <org>/<plugin-repo>` then `/plugin install ticket-pipeline@<marketplace>`.
+1. Install the plugin: `/plugin marketplace add Humble-Coders/humble-task-force` then `/plugin install humble-task-force@humble-coders`.
 2. Get repo access; `gh auth login`.
 3. Read this file and `CLAUDE.md`.
 4. You now have the full pipeline. **Nothing is stored in a person; it's all in the plugin + the repo.**

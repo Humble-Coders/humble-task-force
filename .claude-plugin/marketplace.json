@@ -3,9 +3,9 @@
   "owner": { "name": "Humble Coders" },
   "plugins": [
     {
-      "name": "ticket-pipeline",
-      "source": "./ticket-pipeline",
-      "description": "Portable manager↔developer ticket pipeline for Claude Code: draft tickets via a recommendation interview, execute them with a built-in training/Q&A step, hand off from the real git diff, and review against acceptance criteria."
+      "name": "humble-task-force",
+      "source": "./humble-task-force",
+      "description": "Humble Task Force — a portable manager↔developer ticket pipeline for Claude Code: draft tickets via a recommendation interview, execute them with a built-in training/Q&A step, hand off from the real git diff, and review against acceptance criteria."
     }
   ]
 }

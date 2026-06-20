@@ -1,21 +1,21 @@
 # Humble Coders — Claude Code plugin marketplace
 
-This repo is a [Claude Code plugin marketplace](https://docs.claude.com/en/docs/claude-code/plugins). It currently ships one plugin: **`ticket-pipeline`** — a portable manager↔developer ticket workflow.
+This repo is a [Claude Code plugin marketplace](https://docs.claude.com/en/docs/claude-code/plugins). It ships **Humble Task Force** (`humble-task-force`) — a portable manager↔developer ticket workflow.
 
 ## Install (every teammate does this once)
 
 ```
-/plugin marketplace add Humble-Coders/claude-ticket-pipeline
-/plugin install ticket-pipeline@humble-coders
+/plugin marketplace add Humble-Coders/humble-task-force
+/plugin install humble-task-force@humble-coders
 ```
 
 That's it — `/draft-ticket`, `/start-ticket`, `/handoff`, `/manager-review`, and `/setup-tickets` are now available in **every** repo you open.
 
-> Replace `Humble-Coders/claude-ticket-pipeline` with this repo's actual `owner/name` if it differs.
+> Replace `Humble-Coders/humble-task-force` with this repo's actual `owner/name` if it differs.
 
 ## What's inside
 
-- [`ticket-pipeline/`](./ticket-pipeline) — the plugin (commands + repo-scaffold templates). See its [README](./ticket-pipeline/README.md).
+- [`humble-task-force/`](./humble-task-force) — the plugin (commands + repo-scaffold templates). See its [README](./humble-task-force/README.md).
 
 ## Updating
 
