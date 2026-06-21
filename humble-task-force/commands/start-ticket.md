@@ -19,7 +19,8 @@ You are helping a developer start GitHub issue #$1. The developer may be junior 
 - Present a concise step-by-step plan and the files you expect to change. Ask the developer to confirm. **Do NOT write code yet.**
 
 ## 4. Build
-- After approval, create a branch `ticket-$1-<short-slug>`, then implement step by step, scoped to this ticket.
+- **Sync first** so you branch off the latest merged work: `git checkout main && git pull` (use `master` if that's the default branch).
+- After approval, create a branch `ticket-$1-<short-slug>` off the updated main, then implement step by step, scoped to this ticket.
 
 ## 5. Hand off
 - When the work is done and verified, run `/handoff $1`.

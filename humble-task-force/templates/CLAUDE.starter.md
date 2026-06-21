@@ -17,6 +17,8 @@
 > Full playbook for managers and new joiners: **`docs/PROCESS.md`**.
 - **Managers draft tickets** with **`/draft-ticket <what to build>`** — it interviews the manager
   for the decisions a developer would otherwise ask about, then produces a ready-to-create issue.
+- **Always `git checkout main && git pull` before starting a ticket**, so every `ticket-N` branch
+  builds on the latest merged work. (`/start-ticket` does this for you.)
 - A developer starts a ticket with **`/start-ticket <#>`** — it reads the ticket + this file +
   the spec, gives a plain-language walkthrough, offers a Q&A (training mode), then **plans and
   confirms before writing code.**
