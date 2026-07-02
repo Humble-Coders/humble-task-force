@@ -1,7 +1,7 @@
 {
   "name": "humble-task-force",
-  "version": "1.0.0",
-  "description": "Humble Task Force — manager↔developer ticket pipeline: /draft-ticket (interview the manager, produce a ready-to-run issue), /start-ticket (walkthrough + Q&A training, then plan, then build), /handoff (report from the real diff), /manager-review (check the PR against acceptance criteria), /setup-tickets (scaffold any repo).",
+  "version": "1.1.0",
+  "description": "Humble Task Force — product-owner↔manager↔developer pipeline with two review gates: /draft-brief (Product Owner frames a feature's intent), /read-brief (Manager absorbs it + plans the build), /draft-ticket (draft against the brief), /review-ticket (Gate 1: Product Owner signs off the plan), /start-ticket (walkthrough + Q&A training, then plan, then build), /handoff (report from the real diff), /manager-review (Gate 2: check the PR against acceptance criteria), plus /draft-prd, /draft-architecture, /setup-tickets.",
   "author": { "name": "Humble Coders" },
   "keywords": ["tickets", "workflow", "code-review", "process", "github"]
 }

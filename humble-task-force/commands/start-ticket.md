@@ -6,6 +6,7 @@ You are helping a developer start GitHub issue #$1. The developer may be junior 
 
 ## 1. Load the context (silently)
 - Run `gh issue view $1` and read the ticket in full.
+- If the ticket links a **`Brief: #<n>`**, skim that brief (`gh issue view <n>`) for the product intent — the *why* behind the work — so the walkthrough conveys it.
 - Read the project's `CLAUDE.md` and the spec sections the ticket references (e.g. `docs/PRD.md`).
 - Read the existing code/modules the ticket touches, so everything you say is grounded in what already exists.
 

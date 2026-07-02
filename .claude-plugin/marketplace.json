@@ -5,7 +5,7 @@
     {
       "name": "humble-task-force",
       "source": "./humble-task-force",
-      "description": "Humble Task Force — a portable manager↔developer ticket pipeline for Claude Code: draft tickets via a recommendation interview, execute them with a built-in training/Q&A step, hand off from the real git diff, and review against acceptance criteria."
+      "description": "Humble Task Force — a portable product-owner↔manager↔developer pipeline for Claude Code with two review gates: frame a feature's intent as a brief, absorb it and plan the build, draft the ticket against it, sign off the plan (Gate 1), execute with a training/Q&A step, hand off from the real git diff, and review the code against acceptance criteria (Gate 2)."
     }
   ]
 }

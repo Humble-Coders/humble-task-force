@@ -6,6 +6,9 @@ You are helping a manager draft a development ticket. Goal: a ticket so self-suf
 
 ## 1. Ground yourself (silently)
 - Read the project's `CLAUDE.md` and any spec docs (e.g. `docs/PRD.md`) relevant to: **$ARGUMENTS**
+- **If this work implements a feature brief** (the cofounder just ran `/read-brief <#>`, or names one): read it
+  — `gh issue view <brief#>` + `docs/briefs/B<brief#>-*.md`. It's the Product Owner's intent and guardrails;
+  draft the ticket to deliver it (see "If this ticket implements a brief" below).
 - If `.github/ISSUE_TEMPLATE/feature-ticket.md` exists, match its sections exactly. Otherwise use: Story/Why · Context · 🔑 Access & prerequisites · Scope · Acceptance Criteria · Out of scope · Dependencies · References · Kickoff prompt (`/start-ticket <#>`).
 - Read any existing code/tickets this work touches.
 
@@ -24,6 +27,18 @@ Write a first draft with every section.
 ## 5. Save + offer to create
 - Save the finished draft to `docs/tickets/<id>-<slug>.md` (create the folder if needed).
 - Offer to create the GitHub issue: `gh issue create --title "..." --body "$(tail -n +5 <draft>)" [--milestone "<milestone>"]`.
+- If it implements a brief, tell the manager it's ready for the Product Owner's **`/review-ticket <#>`** before
+  build; otherwise it's ready for **`/start-ticket <#>`**.
+
+## If this ticket implements a brief
+- **Deliver the brief.** Its capabilities become the ticket's Scope / Acceptance Criteria.
+- **Honor the non-negotiables** (product + `[hard]` technical steers). Never silently override one — if you
+  believe a non-negotiable should change, **flag it for the Product Owner** in the ticket and your summary,
+  rather than working around it.
+- **`[preference]` steers** are strong defaults; if you deviate, **say why in Context** so `/review-ticket`
+  can surface it for the Product Owner to bless or veto.
+- **Stamp the link:** put `**Brief:** #<n>` at the top of the ticket body (and the saved doc) so
+  `/review-ticket` can find the yardstick.
 
 ## For UI / visual tickets — always
 If the work is UI-facing (a screen, component, theme, or any visual change), do BOTH of these:
