@@ -9,7 +9,7 @@ A portable **manager ↔ developer ticket pipeline** for Claude Code. Install on
 | `/setup-tickets` | Anyone | Scaffolds the current repo: issue/PR templates, `docs/PROCESS.md`, `handoffs/`, `docs/tickets/`. |
 | `/draft-prd <idea>` | **Manager** | Interviews you to produce the product spec at `docs/PRD.md` (vision, scope, architecture, constraints). |
 | `/draft-architecture` | **Manager** | Reads the PRD + codebase and writes the project's `CLAUDE.md` (architecture + rules every dev's Claude reads). |
-| `/draft-ticket <what to build>` | **Manager** | Drafts a ticket, **interviews you** for the decisions a developer would otherwise ask about, bakes them in, and creates the GitHub issue. |
+| `/draft-ticket <what to build>` | **Manager** | Drafts a ticket, **interviews you** for the decisions a developer would otherwise ask about, bakes them in, and creates the GitHub issue. For **UI tickets** it also settles the design source and embeds the [UI standards](./templates/ui-standards.md) (light+dark, native components, edge-to-edge/insets, responsive, keyboard, a11y…). |
 | `/start-ticket <issue#>` | Developer | Reads the ticket + `CLAUDE.md` + PRD, gives a plain-language walkthrough, **offers a Q&A "training mode"**, then plans and confirms before coding. |
 | `/handoff <issue#>` | Developer | Writes `handoffs/ticket-<#>.md` from the **real git diff**. |
 | `/manager-review <PR#>` | **Manager** | Checks the PR diff + handoff against the ticket's acceptance criteria; flags risks at `file:line`. |

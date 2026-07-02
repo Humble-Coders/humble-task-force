@@ -25,4 +25,19 @@ Write a first draft with every section.
 - Save the finished draft to `docs/tickets/<id>-<slug>.md` (create the folder if needed).
 - Offer to create the GitHub issue: `gh issue create --title "..." --body "$(tail -n +5 <draft>)" [--milestone "<milestone>"]`.
 
+## For UI / visual tickets — always
+If the work is UI-facing (a screen, component, theme, or any visual change), do BOTH of these:
+- **Settle the design source in the interview.** Ask: *is there an approved design (Figma / screenshots /
+  mockup) the UI must match exactly, or should the dev design it against the brand kit?* A design almost
+  always exists but **won't paste cleanly into a GitHub issue** — so state in the ticket that **the PM
+  provides the design assets** and that the **dev's Claude must ask for them at `/start-ticket` before
+  building**, and that the bar is to **match the design exactly** (not approximate or "improve" it).
+- **Embed the UI standards.** Read `${CLAUDE_PLUGIN_ROOT}/templates/ui-standards.md` and paste it into the
+  ticket as a `## 🖼️ UI standards` section, folding the load-bearing ones into Acceptance Criteria. Adapt the
+  platform names to the project and drop any line that genuinely doesn't apply. Every UI ticket must carry:
+  light + dark themes; native components (flag when a design can't be done natively, then proceed);
+  edge-to-edge + safe-area / notch / nav-bar insets; responsive across sizes (incl. desktop reflow); keyboard
+  handling (correct type, Next/Done actions, numeric pads, keep the field visible); correct ellipsis /
+  truncation; loading / empty / error states; accessibility; i18n strings; and the project's UI architecture.
+
 Follow the project's `CLAUDE.md` and `docs/PROCESS.md` if present. The goal is a ticket a junior dev can run cold.
