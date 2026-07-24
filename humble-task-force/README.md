@@ -18,6 +18,8 @@ Three roles, **two review gates**: the **Product Owner** frames each feature and
 | `/start-ticket <issue#>` | Developer | Reads the ticket (+ linked brief) + `CLAUDE.md` + PRD, gives a walkthrough, **offers Q&A training mode**, then plans and confirms before coding. |
 | `/handoff <issue#>` | Developer | Writes `handoffs/ticket-<#>.md` from the **real git diff**. |
 | `/manager-review <PR#>` | **Manager** | **Gate 2** — checks the PR diff + handoff against the ticket's acceptance criteria; flags risks at `file:line`. |
+| `/report-bug [what went wrong] [--repo owner/repo]` | **Tester** | Files a clean, labelled bug issue — asks **platform** + **severity**, cleans up the wording, and uploads any screenshot (hosted as a release asset so it renders inline). No code touched. |
+| `/fetch-bug <issue#> [--repo owner/repo]` | Developer | Reads a bug issue, **validates it against the real code** (root cause at `file:line`, with confidence), proposes fix approaches for you to choose, then implements the chosen one. No PR. |
 
 ## The full project lifecycle
 ```
