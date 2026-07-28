@@ -20,6 +20,7 @@ Three roles, **two review gates**: the **Product Owner** frames each feature and
 | `/manager-review <PR#>` | **Manager** | **Gate 2** — checks the PR diff + handoff against the ticket's acceptance criteria; flags risks at `file:line`. |
 | `/report-bug [what went wrong] [--repo owner/repo]` | **Tester** | Files a clean, labelled bug issue — asks **platform** + **severity**, cleans up the wording, and uploads any screenshot (hosted as a release asset so it renders inline). No code touched. |
 | `/fetch-bug <issue#> [--repo owner/repo]` | Developer | Reads a bug issue, **validates it against the real code** (root cause at `file:line`, with confidence), proposes fix approaches for you to choose, then implements the chosen one. No PR. |
+| `/run-desktop` | Anyone | Builds and launches the repo's **desktop app** for review — **no questions asked**. Kills any stale instance, runs in the background, and reports launch or the actual compile/runtime error. |
 
 ## The full project lifecycle
 ```
