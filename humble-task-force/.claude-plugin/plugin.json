@@ -1,7 +1,16 @@
 {
   "name": "humble-task-force",
-  "version": "1.3.0",
-  "description": "Humble Task Force — product-owner↔manager↔developer pipeline with two review gates: /draft-brief (Product Owner frames a feature's intent), /read-brief (Manager absorbs it + plans the build), /draft-ticket (draft against the brief), /review-ticket (Gate 1: Product Owner signs off the plan), /start-ticket (walkthrough + Q&A training, then plan, then build), /handoff (report from the real diff), /manager-review (Gate 2: check the PR against acceptance criteria), plus a bug loop — /report-bug (tester files a clean, labelled bug issue with screenshot) and /fetch-bug (developer validates it against the code and fixes it) — /run-desktop (launch the desktop app for review, no questions asked), and /draft-prd, /draft-architecture, /setup-tickets.",
-  "author": { "name": "Humble Coders" },
-  "keywords": ["tickets", "workflow", "code-review", "process", "github"]
+  "version": "1.4.0",
+  "description": "Humble Task Force — product-owner↔manager↔developer pipeline with two review gates: /draft-brief (Product Owner frames a feature's intent), /read-brief (Manager absorbs it + plans the build), /draft-ticket (draft against the brief), /review-ticket (Gate 1: Product Owner signs off the plan), /start-ticket (walkthrough + Q&A training, then plan, then build), /handoff (report from the real diff), /manager-review (Gate 2: check the PR against acceptance criteria), plus a bug loop — /report-bug (tester files a clean, labelled bug issue with screenshot) and /fetch-bug (developer validates it against the code and fixes it) — /run-desktop (launch the desktop app for review, no questions asked), /pc-handoff + /pc-restore (move a project’s entire brain — literal chat transcripts, memory, un-versioned dirs, secrets — to another PC as one encrypted bundle, resumable with claude --resume), and /draft-prd, /draft-architecture, /setup-tickets.",
+  "author": {
+    "name": "Humble Coders"
+  },
+  "keywords": [
+    "tickets",
+    "workflow",
+    "code-review",
+    "process",
+    "github",
+    "handoff"
+  ]
 }
