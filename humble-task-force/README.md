@@ -42,3 +42,7 @@ The **PRD** and **CLAUDE.md** are the foundation — every brief and ticket refe
 - **Secrets never go in briefs, tickets, or `CLAUDE.md`** — reference the secure source, never the value.
 - **Training before building** — a cofounder absorbs a brief, and a developer a ticket, before any code is written.
 - **Handoff from the real diff** — reports are generated from `git diff`, not memory.
+
+## Skills
+
+- **`kmp-arch-v2`** — the KMP architecture guide (native UI on Android/iOS/Desktop + maximal shared Kotlin logic, SKIE Swift bridging, shared i18n, money conventions, testing matrix). Loads automatically when Claude works in a KMP project set up in this style, or invoke it directly with `/humble-task-force:kmp-arch-v2`. Use it when writing features, reviewing KMP code, or scaffolding a new project.
