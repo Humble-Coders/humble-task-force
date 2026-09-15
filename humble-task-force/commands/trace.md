@@ -9,6 +9,12 @@ The diagram is the easy half. **The trace is the product.** A beautiful picture 
 guessed at is worse than no picture, because it will be believed. Every rule below exists to
 keep that from happening.
 
+**You are not the architect's advocate.** The default failure of this command is a page that
+reads as validation: you describe what the code does, everything you describe looks
+deliberate, and the manager comes away reassured rather than informed. Reading code makes
+every choice look intentional, because you are reading the choice that won. Your job is to
+surface what each step costs, at the step where it is paid.
+
 ## The one rule
 
 **Never draw a hop you have not read.** Not inferred from a name, not assumed from a pattern,
@@ -78,7 +84,52 @@ While reading, watch for the structural facts that a step-by-step list hides:
 - **What happens when it fails.** A flow drawn only as its happy path is half a flow. Show the
   meaningful failures: rejected, rate limited, unreachable, not permitted.
 
-## 5. Write two registers for every step
+## 5. Interrogate every step for what it costs
+
+This is the section that makes the page worth a manager's time. Walk each step again and ask
+what it gives up. Most will give up nothing worth reporting; some will, and those are the
+reason the page exists.
+
+Probe for the specific things, not for a general sense of unease:
+
+- **What happens when this step fails?** Is the failure visible, or does it turn into an empty
+  screen, a silent skip, a default value? A failure that looks like "no data" is the single
+  most common real defect in business software.
+- **Does this step hold a privilege it does not need?** Admin keys, service accounts, wide
+  grants, broad scopes.
+- **What is checked only on the client?** Say plainly whether the server checks it again. If it
+  does not, that is a finding, not a note.
+- **What can a second person do at the same time?** Two people, one row, one counter, one
+  sequence, one file. Check-then-act across a network is not atomic.
+- **What grows?** A query with no limit, a table with no retention, a list fetched whole.
+  Name the size at which it stops working, and compare it to the real numbers in this business.
+- **What is not written down?** A change with no audit row, no timestamp, no actor.
+- **What cannot be undone**, and is there a confirmation in front of it?
+- **Who gets locked out?** Rate limits, circuit breakers and lockouts protect against abuse and
+  create a way to deny service to legitimate users. Say who can trigger that, and for how long.
+- **What happens to someone already inside?** Access checks usually run at the door. If
+  permission is revoked mid-session, does anything actually stop them, and what do they see?
+- **What is the blast radius if this one step is wrong?** One record, one customer, or the
+  whole table.
+
+**Verify before you claim.** A risk you assert without reading the code that would disprove it
+is worse than one you miss, because it sends people chasing a problem that is not there and it
+spends the credibility of everything else on the page. Before writing "the server does not
+check X", find the place it would be checked and confirm it is absent. If you looked and could
+not tell, write that you could not tell.
+
+**Do not manufacture balance.** If a step is genuinely well built, say so in one line and move
+on. A page with three invented concerns is as useless as a page with none, and it is obvious.
+Weight matters too: do not give a naming inconsistency the same visual weight as a missing
+authorisation check.
+
+**Name the trade, not just the flaw.** Most drawbacks are the price of something the team chose
+deliberately. "The invite stays valid until the password is set, so a new employee is never
+stranded halfway; the cost is a replay window on a code that has already been used once" tells
+a manager something. "The invite is not invalidated immediately" reads as an accusation and
+invites a pointless defence.
+
+## 6. Write two registers for every step
 
 Each step carries both, and neither substitutes for the other:
 
@@ -92,7 +143,7 @@ Where a step exists for a non-obvious reason, add one short note explaining **wh
 are what turn a diagram into an audit. Draw them from comments and commit messages in the code
 rather than inventing a rationale.
 
-## 6. Build the visual
+## 7. Build the visual
 
 Load the `artifact-design` skill, then write and publish an HTML artifact. Design it properly;
 it is going in front of a client or a board, not into a terminal.
@@ -110,26 +161,37 @@ What the visual must do:
 - **Give converging paths a real join**, and forks a real split. Lanes side by side merging into
   one emphasised gate block reads instantly; a flat list of the same steps does not.
 - **Mark the security-critical steps distinctly** from the ordinary ones.
+- **Put each drawback on its own step, not only in a list at the end.** A risk collected into a
+  summary is read as an abstraction; the same sentence attached to step B3 is read as a fact
+  about B3. Give risk notes a distinct, heavier treatment than explanatory notes, so a reader
+  skimming the page sees where the soft spots are without reading a word. Where a step carries
+  a real cost, say in one sentence **what could go wrong and who it affects** - not a label.
 - Stay readable on a laptop and in both light and dark themes.
 
 Avoid a generic left-to-right box-and-arrow chart. The shape should carry the specific structure
 of *this* flow.
 
-## 7. Close with findings, then with limits
+## 8. Close with findings, then with limits
 
 Two short sections after the diagram, and do not skip either.
 
-**What an auditor should take away.** Three to six items, each labelled: sound / accepted risk /
-worth fixing / housekeeping. These come from what you read, not from a checklist. Name the
-specific thing, in plain language, and say why it matters. If everything genuinely is sound, say
-that in one line rather than manufacturing concerns - and if something is wrong, say it plainly
-without softening it.
+**What an auditor should take away.** Lead with the drawbacks, then the strengths - a manager
+reading the top of this section is deciding where to spend attention, and strengths do not need
+any. Label each item: worth fixing / accepted risk / housekeeping / sound. Name the specific
+thing in plain language, say what it costs and who it affects, and say it plainly without
+softening. Rank by consequence, not by how confident you feel.
+
+Then one short paragraph of **honest verdict on the approach as a whole**: what this design is
+good at, what it is structurally bad at, and what a different approach would have bought or
+lost. Every design trades something. A trace that cannot name what this one traded has not
+understood it yet. If the honest verdict is that the approach is sound and the trades were made
+knowingly, say exactly that - being real is not the same as being negative.
 
 **What this trace does not cover.** The adjacent paths you did not follow, and any hop you could
 not verify. An audit that does not state its own boundary invites the reader to assume it covers
 everything. This section is what makes the rest trustworthy.
 
-## 8. Hand it over
+## 9. Hand it over
 
 Give the user the artifact link and three or four sentences: what you traced, the single most
 important structural fact you found, and anything that needs their decision. Do not re-narrate
@@ -142,5 +204,7 @@ the findings) so it is versioned and reviewable in pull requests. Offer; do not 
 
 - Nothing in this command modifies code. It reads, and it publishes a document.
 - Real names throughout. A trace with placeholder names is not a trace.
+- The page is an audit, not a pitch. Never write that the approach is best practice, robust,
+  or industry standard. Show what it does and what that costs, and let the reader judge.
 - If the feature turns out not to exist yet, or exists only as a stub, say so immediately and
   stop. Do not draw the flow the code is going to have.
