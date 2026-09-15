@@ -52,12 +52,38 @@ Restart the terminal, then repeat step 2.
 | Command | Who | What |
 |---|---|---|
 | `/setup-tickets` | anyone | scaffold a repo (templates, folders, process doc) |
-| `/draft-prd` | manager | interview → `docs/PRD.md` |
-| `/draft-architecture` | manager | PRD + code → `CLAUDE.md` |
-| `/draft-ticket` | manager | interview → ready-to-create GitHub issue |
+| `/draft-prd` | manager | interview to `docs/PRD.md` |
+| `/draft-architecture` | manager | PRD + code to `CLAUDE.md` |
+| `/draft-brief` | product owner | capture a feature's intent as a brief |
+| `/read-brief` | manager | absorb the brief, agree a build plan |
+| `/draft-ticket` | manager | interview to a ready-to-create GitHub issue |
+| `/review-ticket` | product owner | Gate 1: does the plan deliver the brief |
 | `/start-ticket <#>` | developer | walkthrough + Q&A, then plan, then build |
 | `/handoff <#>` | developer | write the handoff from the real git diff |
-| `/manager-review <PR#>` | manager | review the PR against the ticket |
+| `/manager-review <PR#>` | manager | Gate 2: review the PR against the ticket |
+| `/rebase` | developer | safely pull main into the branch you are on |
+| `/run-desktop` | anyone | launch the desktop app for review, no questions |
+| `/report-bug` | tester | file a clean, labelled bug issue with screenshot |
+| `/fetch-bug` | developer | validate a bug against the code and fix it |
+| `/pc-handoff` | anyone | pack a project's brain to move PCs |
+| `/pc-restore` | anyone | unpack that bundle on the new PC |
+
+## 4b. Keeping it up to date
+
+The plugin gets new commands over time. You are not notified, so check when a
+teammate mentions one you do not have. In an interactive Claude Code terminal:
+
+```
+/plugin marketplace update humble-coders
+/plugin update humble-task-force@humble-coders
+```
+
+The first refreshes the catalogue, the second installs the newer version. Or open
+`/plugin`, find humble-task-force, and use the menu. Restart the session afterwards
+so the new commands load.
+
+To see which version you are on, run `/plugin` and read it off the entry. A command
+that "does not exist" is almost always an out-of-date plugin rather than a typo.
 
 ## 5. To actually run the workflow (separate from installing the plugin)
 
