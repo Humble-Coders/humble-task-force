@@ -61,6 +61,7 @@ Restart the terminal, then repeat step 2.
 | `/start-ticket <#>` | developer | walkthrough + Q&A, then plan, then build |
 | `/handoff <#>` | developer | write the handoff from the real git diff |
 | `/manager-review <PR#>` | manager | Gate 2: review the PR against the ticket |
+| `/trace <feature>` | manager | trace a feature end to end, publish it as a visual flow |
 | `/rebase` | developer | safely pull main into the branch you are on |
 | `/run-desktop` | anyone | launch the desktop app for review, no questions |
 | `/report-bug` | tester | file a clean, labelled bug issue with screenshot |
